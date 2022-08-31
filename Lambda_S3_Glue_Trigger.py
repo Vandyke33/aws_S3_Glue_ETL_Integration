@@ -51,7 +51,8 @@ df2 = df.groupBy(df.group).agg(collect_set(col("area_id")))
 df3 = df.groupBy(df.group, df.group_id).agg(count(col("name")).alias("Members")).orderBy(col("group").asc())
 
 #store cleaned data in s3
-df2.coalesce(1).write.csv(outputpath+'1', header=True, sep='::')
+#array<struct> cannot be stored in CSV format so Json format is needed for lists or sets aggrigations
+df2.coalesce(1).write.json(outputpath+'1', ignoreNullFields=True)
 df3.coalesce(1).write.csv(outputpath+'2', header=True, sep='::')
 
 #job.commit()
