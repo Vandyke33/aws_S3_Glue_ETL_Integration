@@ -1,8 +1,8 @@
 # Problem Statement − Use boto3 library in Python to get a list of files from S3, those are modified after a given date timestamp.
 
-# Example − List out test.zip from Bucket_1/testfolder of S3 if it is modified after 2021-01-21 13:19:56.986445+00:00.
+### Example − List out test.zip from Bucket_1/testfolder of S3 if it is modified after 2021-01-21 13:19:56.986445+00:00.
 
-# Approach/Algorithm to solve this problem
+### Approach/Algorithm to solve this problem
 Step 1 − Import boto3 and botocore exceptions to handle exceptions.
 
 Step 2 − s3_path and last_modified_timestamp are the two parameters in function list_all_objects_based_on_last_modified. 
